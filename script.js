@@ -10,12 +10,20 @@ const personalMovieDB = {
     privat: Boolean(false)
 };
 
-const oneOfTheLastFilms = prompt ('Один из последних просмотренных фильмов?', ''),
-      raiting = +prompt('На сколько оцениваете его?', ''),
-      oneOfTheLastFilms2 = prompt ('Один из последних просмотренных фильмов?', ''),
-      raiting2 = +prompt('На сколько оцениваете его?', '');
 
 
+for (let i = 0; i < 2; i++) {
+    const a = prompt ('Один из последних просмотренных фильмов?', ''),
+          b =  +prompt('На сколько оцениваете его?', '');
+    
+    if (a != null && b != null && a != '' &&  b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    }  else {
+        console.log('Error');
+        i--;
+    }          
+}
 
-personalMovieDB.movies[oneOfTheLastFilms] = raiting;
-personalMovieDB.movies[oneOfTheLastFilms2] = raiting2;
+
+console.log(personalMovieDB);
